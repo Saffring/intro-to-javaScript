@@ -196,3 +196,146 @@ if (1 !== 2) {
 >> "not equal"
 
 ```
+## Arrays
+Arrays in JS are an ordered list of values and can contain different types of values.
+
+### Indexing arrays
+```js
+let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+days[0]
+>> 'Monday'
+
+days[4]
+>> 'Friday'
+```
+
+### Getting the length of an array
+```js
+let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+days.length
+>> 7
+```
+
+### `push()`
+This method adds an item to the end of an array
+```js
+let summerMonths = ['June', 'July'];
+summerMonths.push('August');
+console.log(summerMonths);
+>> ['June', 'July', 'August']
+```
+### `pop()`
+This method removes and returns the item at the end of an array
+```js
+let coldColors = ['green', 'blue', 'purple', 'red'];
+let discardItem = coldColors.pop();
+console.log(coldColors);
+console.log(discardItem);
+
+>>['green', 'blue', 'purple']
+>>'red'
+```
+### `shift()`
+This method removes and returns the first item of a array
+```js
+let coldColors = ['red', 'green', 'blue', 'purple'];
+let discardItem = coldColors.pop();
+console.log(coldColors);
+console.log(discardItem);
+
+>>['green', 'blue', 'purple']
+>>'red'
+```
+### `unshift()`
+This methods adds an item to the start of an array
+```js
+let summerMonths = ['July', 'August'];
+summerMonths.unshift('June');
+console.log(summerMonths);
+
+>> ['June', 'July', 'August']
+```
+### `concat()`
+This method combines two lists together
+```js
+let evenNums = [2,4,6];
+let oddNums = [1,3,5];
+let both = evenNums.concat(oddNums)
+console.log(both);
+
+>> [2,4,6,1,3,5]
+```
+### `includes()`
+This method returns true if item is in array and false otherwise
+```js
+let summerMonths = ['June', 'July', 'August'];
+console.log(summerMonths.includes('July'))
+console.log(summerMonths.includes('January'))
+console.log(summerMonths.includes('july'))
+
+>> true
+>> false
+>> false
+``` 
+
+### `indexOf()`
+This method returns the index of an item or -1 if it is not in array
+```js
+let summerMonths = ['June', 'July', 'August'];
+console.log(summerMonths.indexOf('July'));
+console.log(summerMonths.indexOf('August'));
+console.log(summerMonths.indexOf('January'));
+
+>> 1
+>> 0
+>> -1
+```
+
+### `reverse()`
+This method reverse an array
+```js
+let numbers = [1,2,3,4,5];
+console.log(numbers.reverse())
+
+>> [5, 4, 3, 2, 1]
+```
+
+### `slice()`
+This method copies a subset of an array
+```js
+let dogs = ['corgi', 'dachhund', 'shiba', 'poodle'];
+
+console.log(dogs.slice());
+console.log(dogs.slice(2));
+console.log(dogs.slice(1,3));
+
+>> ['corgi', 'dachhund', 'shiba', 'poodle']
+>> ['shiba', 'poodle']
+>> ['dachhund', 'shiba']
+```
+
+### `splice()`
+This method can be used to remove, replace and add elements at a certain index in the array. It returns the part of the list that was discarded.
+```js
+let dogs = ['corgi', 'dachhund', 'shiba', 'poodle'];
+
+// remove poodle
+console.log(dogs.splice(3, 1))
+console.log(dogs)
+>> ['poodle']
+>> ['corgi', 'dachhund', 'shiba']
+
+// add another dog after corgi but don't delete anything
+console.log(dogs.splice(1, 0, "pitbull"))
+console.log(dogs)
+>> []
+>> ['corgi', 'pitbull', 'dachhund', 'shiba']
+
+// replace dachhund with goldren retriever
+console.log(dogs.splice(2, 1, "goldren retriever"))
+console.log(dogs)
+>> ['dachhund']
+```
+
+## Loops
