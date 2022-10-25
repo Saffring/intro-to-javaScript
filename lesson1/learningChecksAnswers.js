@@ -98,3 +98,57 @@ for (i=0;i<hello.length;i++){
 }
 
 console.log("The vowel count is "+vowelCount) // 2
+
+// JSON Objects
+let books = [
+    {
+        'title': 'Our Missing Hearts',
+        'author': 'Celeste Ng',
+        'rating': 8.5
+    },
+    {
+        'title': 'The Couple Next Door',
+        'author': 'Shari Lapena',
+        'rating': 3
+    },
+    {
+        'title': 'Seveneves',
+        'author': 'Neal Stephenson',
+        'rating': 7.5
+    },
+    {
+        'title': "I'm Glad My Mom Died",
+        'author': 'Jenette McCurdy',
+        'rating': 8
+    },
+    
+];
+
+// 16. Add another book rating to the end of books
+books.push({
+    'title': 'The Push',
+    'author': 'Ashley Audrain',
+    'rating': 9
+})
+
+// 17. Iterate through books using a loop of your choosing and get the average book rating. (The average is the sum of all ratings divided by the number of ratings)
+ratingSum = 0;
+
+books.forEach(book => {
+    ratingSum += book['rating'];
+})
+
+let avg_rating = ratingSum/books.length;
+
+console.log("The average rating is "+avg_rating);
+
+// 18. Design an object representing a restaurant. This is an open-ended question meant to get you thinking about how to represent real world things
+
+// example answer, yours will probably be a bit different and that's okay :)
+let restaurant = {
+    'name': 'Nook',
+    'address': '781 Denman St',
+    'googleRating': 4.5,
+    'priceRange': '$$',
+    'cuisineType': 'Italian'
+};
