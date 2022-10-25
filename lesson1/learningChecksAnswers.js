@@ -152,3 +152,27 @@ let restaurant = {
     'priceRange': '$$',
     'cuisineType': 'Italian'
 };
+
+// Functions
+
+// 19. Create a function that takes an array of numbers and calculates the average.
+// Test that function works correctly using the following variables
+// Hint: don't forget to think about how to handle an empty list
+
+function myAverage(arr){
+    arrSum = 0;
+    arrLength = 0;
+    for(num of arr){
+        arrSum += num; // also acceptable: arrSum = arrSum + num
+    }
+    if(arrLength === 0){
+        return arrSum;
+    }
+    else{
+        return arrSum/arrLength;
+    }
+}
+
+let array1 = [1,2,3,4,5]; // 3
+let array2 = []; // 0
+let array3 = [65, 89, 34, 13, 100, 78, 79]; // 65.42857142857143
