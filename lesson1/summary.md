@@ -428,3 +428,19 @@ while(bigNum>2){
 >>3.890625
 >>1.9453125
 ```
+
+## JavaScript Object
+JS objects allow us to represent more complex information in one place. A single JS object varaible can contain more than one value.
+```js
+let student = {
+    'name': 'Saffrin', // on one side of the colon, we have the name of the attribute and the other side contains the value
+    'major': 'Computer Science', // in between each attribute, we add a ","
+    'minor': 'Linguistics' 
+}
+
+console.log(student['name']) 
+console.log(student['major']) 
+
+>> 'Saffrin'
+>> 'Computer Science'
+```
