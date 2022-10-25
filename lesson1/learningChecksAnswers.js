@@ -39,7 +39,7 @@ let y = getRandomInt(0, 30);
 // Booleans and if statements
 
 // 7. Write an if statement which logs "x is greater than or equal to y" if x is greater than or equal to y.
-console.log(x,y)
+console.log("x and y for question 7", x,y)
 if (x>=y){
     console.log("x is greater than y")
 }
@@ -49,7 +49,7 @@ if (x>=y){
 x = getRandomInt(0, 30);
 y = getRandomInt(0, 30);
 
-console.log(x,y)
+console.log("x and y for question 8", x,y)
 if(x>15 && y>15){
     console.log("both are greater than 15");
 }
@@ -64,7 +64,37 @@ else{
 // Strings, arrays and loops
 
 // Use the following variables for the next question
-let desserts = desserts = ['carrot cake', 'kitkat', 'ice cream', 'apple pie'];
-let hello = 'hello'
-let world = 'world'
+let desserts = ['carrot cake', 'kitkat', 'ice cream', 'apple pie'];
+let hello = 'hello';
+let world = 'world';
 
+// 9. Show how you can access the first, the third and the last character of the hello variable. Bonus if you can find the last character without using the actual index value
+hello[0]; // first
+hello[2]; // third
+hello[hello.length-1]; // last (also acceptable hello[4])
+
+// 10. Using hello and world, combine them together with an empty space between them to get "hello world"
+hello+" "+world;
+
+// 11. Using array methods, create a new mutable variable newDesserts which is a copy of dessert except without 'apple pie'
+let newDesserts = desserts.slice(0,3);
+
+// 12. Add your favorite dessert to newDesserts (add to the end of the array)
+newDesserts.push('cupcake');
+
+// 13. Get the index of 'ice cream' from newDessert
+newDesserts.indexOf('ice cream');
+
+// 14. Update newDesserts by replacing 'ice cream' with another dessert of your choosing.
+newDesserts.splice(newDesserts.indexOf('ice cream'), 1, "timtam");
+
+let vowels = ['a', 'e', 'i', 'o', 'u'];
+// 15. Using a for loop, count the number of vowels in hello. The variable of vowels has been provided and can be used.
+let vowelCount = 0;
+for (i=0;i<hello.length;i++){
+    if(vowels.includes(hello[i])){
+        vowelCount++; // also acceptable is vowelCount = vowelCount+1;
+    }
+}
+
+console.log("The vowel count is "+vowelCount) // 2
