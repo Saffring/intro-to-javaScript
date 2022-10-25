@@ -444,3 +444,40 @@ console.log(student['major'])
 >> 'Saffrin'
 >> 'Computer Science'
 ```
+
+## JavaScript Functions
+A JavaScript function is a block of code designed to perform a particular task and is executed when it is called. Just like loops, they help us avoid repeating code if we notice we're performing a block of code over and over again.
+### How to define a function
+```js
+// define a function using `function`
+// add the name and then the opening and closing parenthsis ()
+// inside the (), you can add your parameters.
+function functionName(parameter1, parameter2){
+    // a function can have as many parameters as you want/need
+    // the reason we have parameters is so that we can generalize 
+    // what we're doing instead of performing the task on a specific variable/value.
+    
+    // in functions, we can return a value
+    return ;
+}
+```
+
+#### Example function: Factorial
+Suppose we want to find the facotrial of any number without having to write a for loop each time we want the value. This is a great time to write a function. 
+```js
+function myFactorial(n){
+    let fac = 1;
+    for(let i=n;i>0;i--){
+        fac = fac*i;
+    }
+    return fac;
+}
+
+console.log(3);
+console.log(5);
+console.log(9);
+
+>>6
+>>120
+>>362880
+```
