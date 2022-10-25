@@ -321,21 +321,110 @@ This method can be used to remove, replace and add elements at a certain index i
 let dogs = ['corgi', 'dachhund', 'shiba', 'poodle'];
 
 // remove poodle
-console.log(dogs.splice(3, 1))
-console.log(dogs)
+console.log(dogs.splice(3, 1));
+console.log(dogs);
 >> ['poodle']
 >> ['corgi', 'dachhund', 'shiba']
 
 // add another dog after corgi but don't delete anything
-console.log(dogs.splice(1, 0, "pitbull"))
-console.log(dogs)
+console.log(dogs.splice(1, 0, "pitbull"));
+console.log(dogs);
 >> []
 >> ['corgi', 'pitbull', 'dachhund', 'shiba']
 
 // replace dachhund with goldren retriever
-console.log(dogs.splice(2, 1, "goldren retriever"))
-console.log(dogs)
+console.log(dogs.splice(2, 1, "goldren retriever"));
+console.log(dogs);
 >> ['dachhund']
 ```
 
 ## Loops
+Loops allow us to perform repeated actions and avoid repeating code unnecessarily. We can use loops to perform an action a given number of times, to go through every item in a array or to loop until a condition is satisfied.
+
+### `for` loops
+This loops allow us to set a starting point number and an ending point number and to loop from the start number to the end number. 
+```js
+// sum numbers from 1 to 5
+let sum = 0;
+for(let i=1; i<=5; i++){
+    sum = sum+i; // take the sum so far and add the current i to it
+}
+
+console.log(sum); // 1+2+3+4+5 = 15
+
+>> 15
+```
+
+We don't need to start from a small number and get bigger. We can also count down:
+```js
+let factorial = 1;
+for(let i=5; i>0; i--){
+    factorial = factorial*i; // take the sum so far and add the current i to it
+}
+console.log(factorial) // 5 * 4 * 3 * 2 * 1 = 120
+
+>> 120
+```
+#### We can use `for` loops to iterate through an array
+```js
+let dogs = ['corgi', 'dachhund', 'shiba', 'poodle'];
+for(let i=0; i<dogs.length; i++){
+    console.log(dogs[i]); // index the ith item in the array dogs
+}
+>>'corgi'
+>>'dachhund'
+>>'shiba'
+>>'poodle'
+```
+
+Another way to iterate through an array. This block of code as the same functionality as the previous one, just a different syntax.
+```js
+for (const dog of dogs) {
+    console.log(dog);
+}
+>>'corgi'
+>>'dachhund'
+>>'shiba'
+>>'poodle'
+```
+
+### `forEach` loops
+The `forEach()` method executes a provided function once for each array element. This is helpful if we want to perform a function on every item of the list.
+```js
+let numbers = [1,2,3];
+
+numbers.forEach((number => { // this number is a temporary variable in the same way that we defined const dog in the previous for loop.
+    if(number % 2 === 0){
+        console.log(number+" is an even number");
+    }
+    else{
+       console.log(number+" is an odd number"); 
+    }
+}))
+
+>>'1 is an odd number'
+>>'2 is an even number'
+>>'3 is an odd number'
+```
+
+### `while` loops
+These loops continue looping until a condition is satisfied. These loops are useful when we want to perform a task repeatedly but we perhaps don't know how many times exactly we will need to perform it. With while loops, we need to be cautious that the loop will eventually stop. There is the potential that you could accidently program an infinate loop.
+```js
+// divide a number by 2 until it gets down to 2 or less than 2
+bigNum = 498;
+while(bigNum>2){
+    // inside the while loop, you should update the variable inside the condition
+    // to avoid an infinate loop.
+    bigNum = bigNum / 2
+    console.log(bigNum)
+}
+
+>>249
+>>124.5
+>>62.25
+>>31.125
+>>15.5625
+>>7.78125
+>>3.890625
+>>1.9453125
+```
