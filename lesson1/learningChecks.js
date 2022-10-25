@@ -62,3 +62,39 @@ let world = 'world'
 
 let vowels = ['a', 'e', 'i'. 'o', 'u'];
 // 15. Using a for loop, count the number of vowels in hello. The variable of vowels has been provided and can be used.
+
+
+// JSON Objects
+let books = [
+    {
+        'title': 'Our Missing Hearts',
+        'author': 'Celeste Ng',
+        'rating': 8.5
+    },
+    {
+        'title': 'The Couple Next Door',
+        'author': 'Shari Lapena',
+        'rating': 3
+    },
+    {
+        'title': 'Seveneves',
+        'author': 'Neal Stephenson',
+        'rating': 7.5
+    },
+    {
+        'title': "I'm Glad My Mom Died",
+        'author': 'Jenette McCurdy',
+        'rating': 8
+    },
+    
+];
+
+// 16. Add another book rating to the end of books
+
+// 17. Iterate through books using a loop of your choosing and get the average book rating. (The average is the sum of all ratings divided by the number of ratings)
+
+// 18. Design an object representing a restaurant. This is an open-ended question meant to get you thinking about how to represent real world things
+let restaurant = {
+    // add attributes you think could be helpful
+}
+
