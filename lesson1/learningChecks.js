@@ -98,3 +98,18 @@ let restaurant = {
     // add attributes you think could be helpful
 }
 
+
+// Functions
+
+// 19. Create a function that takes an array of numbers and calculates the average.
+// Test that function works correctly using the following variables.
+// You should expect the answer that is commented out next to the variable
+// Hint: don't forget to think about how to handle an empty list
+
+function myAverage(arr){
+    // your code here
+}
+
+let array1 = [1,2,3,4,5]; // 3
+let array2 = []; // 0
+let array3 = [65, 89, 34, 13, 100, 78, 79]; // 65.42857142857143
