@@ -44,6 +44,21 @@ console.log(x,y)
 // Strings, arrays and loops
 
 // Use the following variables for the next question
-let desserts = desserts = ['carrot cake', 'kitkat', 'ice cream', 'apple pie'];
+let desserts = ['carrot cake', 'kitkat', 'ice cream', 'apple pie'];
 let hello = 'hello'
 let world = 'world'
+
+// 9. Show how you can access the first, the third and the last character of the hello variable. Bonus if you can find the last character without using the actual index value
+
+// 10. Using hello and world, combine them together with an empty space between them
+
+// 11. Using array methods, create a new variable newDesserts which is a copy of dessert except without 'apple pie'
+
+// 12. Add your favorite dessert to newDesserts (add to the end of the array)
+
+// 13. Get the index of 'ice cream' from newDessert
+
+// 14 Update newDesserts by replacing 'ice cream' with another dessert of your choosing.
+
+let vowels = ['a', 'e', 'i'. 'o', 'u'];
+// 15. Using a for loop, count the number of vowels in hello. The variable of vowels has been provided and can be used.
