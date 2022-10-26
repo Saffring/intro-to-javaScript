@@ -482,4 +482,6 @@ console.log(myFactorial(9));
 >>362880
 ```
 
+## DOM
 
+## DOM Events
