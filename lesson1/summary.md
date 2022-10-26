@@ -483,5 +483,42 @@ console.log(myFactorial(9));
 ```
 
 ## DOM
+The DOM represents our HTML page and allows us to interact with and update it. When an HTML page is created, so is an object called `document`. When our JS script is connected, we can call that `document`
+object.
 
+### Access an HTML element.
+To access an HTML element, we can use a couple different methods:
+- `document.getElementById`
+- `document.getElementByTagName`
+- `document.querySelector`
+- `document.querySelectorAll`
+
+#### Example of getting element by ID
+Suppose we have an HTML page:
+```html
+<h1 id="title">This is my title</h1>
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+</ul>
+```
+We can select that `h1` 
+```js
+let title = document.getElementById("title");
+
+// alternative way
+title = document.querySelector("#title");
+```
+#### Example of getting element by tag name
+Suppose we have the same HTML elements as the previous example:
+```js
+let h1 = document.getElementByTagName("h1");
+let myList = document.querySelector("ul");
+```
+Note that this funcion will return the first instance of that element.
+#### Selecting more than one element
+There are times where we may want to select more than one element:
+```js
+let listItems = document.querySelectorAll("li");
+```
 ## DOM Events
