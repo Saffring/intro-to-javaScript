@@ -34,8 +34,8 @@ x%2 == 0;
 
 
 // Use the following variables for the next question
-let x = getRandomInt(0, 30);
-let y = getRandomInt(0, 30);
+x = getRandomInt(0, 30);
+y = getRandomInt(0, 30);
 // Booleans and if statements
 
 // 7. Write an if statement which logs "x is greater than or equal to y" if x is greater than or equal to y.
@@ -176,3 +176,42 @@ function myAverage(arr){
 let array1 = [1,2,3,4,5]; // 3
 let array2 = []; // 0
 let array3 = [65, 89, 34, 13, 100, 78, 79]; // 65.42857142857143
+
+// 20. Create a function that takes an array of numbers and returns the minimum value.
+// When the list is empty, there is no minimum, therefore would be NaN
+// Test that function works correctly using the following variables.
+// You should expect the answer that is commented out next to the variable
+// Hint: don't forget to think about how to handle an empty list
+
+function findMin(arr){
+    if(arr.length == 0){
+        return NaN;
+    }
+    let minVal = arr[0];
+    for(num of arr.slice(1)){
+        if(num<minVal){
+            minVal = num;
+        }
+    }
+    return minVal;
+}
+
+array1 = [-1, 0, 7, 34, -17, 100]; // -17
+array2 = []; // NaN
+array3 = [1000, 37482, 58034, 29, 182, 102]; // 29
+
+// 21. Create a function that counts the amount of words in a string
+// Test that function works correctly using the following variables.
+// You should expect the answer that is commented out next to the variable
+// Hint: the string method split() splits a string on a input string. (https://www.w3schools.com/JSREF/jsref_split.asp)
+
+function getWordNum(myString){
+    if(myString.length == 0){
+        return 0;
+    }
+    return myString.split(" ").length;
+}
+
+let string1 = "Hello World"; // 2
+let string2 = ""; // 0"""
+let string3 = "This is a string with multiple words"; // 7

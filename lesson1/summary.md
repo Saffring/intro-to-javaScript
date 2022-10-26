@@ -473,11 +473,13 @@ function myFactorial(n){
     return fac;
 }
 
-console.log(3);
-console.log(5);
-console.log(9);
+console.log(myFactorial(3));
+console.log(myFactorial(5));
+console.log(myFactorial(9));
 
 >>6
 >>120
 >>362880
 ```
+
+
