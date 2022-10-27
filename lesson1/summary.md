@@ -521,4 +521,11 @@ There are times where we may want to select more than one element:
 ```js
 let listItems = document.querySelectorAll("li");
 ```
+
+### Changing HTML items
+We are able to update HTML elements once we have selected them using JS
+```js
+let h1 = document.getElementByTagName("h1");
+
+```
 ## DOM Events
