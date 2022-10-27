@@ -15,11 +15,27 @@ body{
     color: white;
 }
 
-html{
-    height: 1000px;
+#submit-button{
+    background-color: #714100;
+    color: white;
 }
-/* 
-img{
-    height: 400px;
-    width: 400px;
-} */
+
+html{
+    height: 1000px
+}
+
+#dessert-table{
+    border: solid 1px #714100;
+}
+
+#dessert-table>thead>tr>th{
+    border: solid 1px #714100;
+}
+
+#dessert-table>tbody>tr>th{
+    border: solid 1px #714100;
+}
+
+#dessert-table>tbody>tr>td{
+    border: solid 1px #714100;
+}
