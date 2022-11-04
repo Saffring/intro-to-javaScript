@@ -497,6 +497,7 @@ To access an HTML element, we can use a couple different methods:
 Suppose we have an HTML page:
 ```html
 <h1 id="title">This is my title</h1>
+<button id="button">Button</button>
 <ul>
     <li>item 1</li>
     <li>item 2</li>
@@ -504,7 +505,7 @@ Suppose we have an HTML page:
 ```
 We can select that `h1` 
 ```js
-let title = document.getElementById("title");
+let title = document.getElementById("#title");
 
 // alternative way
 title = document.querySelector("#title");
@@ -529,3 +530,15 @@ let h1 = document.getElementByTagName("h1");
 
 ```
 ## DOM Events
+Events are occur when a certain action is performed by the website user. An example of an event would be when you click on a particular HTML element. Suppose you want your website to change what it displays on the page when you click a certain item, DOM events make sure that the change only occurs when that item is clicked.
+
+### Event Listeners
+We can set event listeners to certain elements and basically say "when a certain event occurs, perform this actions". Inside the event listener, we add a function which performs the task we want.
+
+```js
+let button = document.getElementById("#button");
+button.addEventListener(function(){
+    console.log("The button was pressed");
+});
+```
+What this code is doing: It tells the website to "listen" for when this button is pressed and when it is pressed, it logs to the console "The button was pressed". 
