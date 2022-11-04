@@ -54,7 +54,7 @@ function addTopicParagraph(topicName){
         node.innerHTML = "This is my coffee section";
         topic.appendChild(node);
     }
-    else if(topic === "coding"){
+    else if(topicName === "coding"){
         const node = document.createElement('p');
         node.innerHTML = "This is coding section";
         topic.appendChild(node);

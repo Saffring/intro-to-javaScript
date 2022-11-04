@@ -134,7 +134,7 @@ console.log(firstName+' '+lastName);
 
 ## Connecting to our HTML files
 1. Create a .js file
-2. Inside our HTML file inside the `<body>` tag, add a script element with a link to JS file:
+2. Inside our HTML file inside the `<body>` tag, add a `<script>` element with a link to JS file:
 ```html
 <body>
     ...
