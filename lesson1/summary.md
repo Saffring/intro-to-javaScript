@@ -60,6 +60,14 @@ console.log(year) ;
 ```
 
 ### Naming conventions
+- While you can technically name your variable anything you want, it is more useful to give your variable a name that makes it easy to understand what it represents.
+- Additionally, it is JS convention when having a variable name with more than two words to use camel casing. This means the first word is lowercase and all subsequent words begin with an uppercase letter
+```js
+let name = "Jane Doe";
+let firstName = "Jane";
+let lastname = "Doe";
+```
+
 
 ## Booleans
 
