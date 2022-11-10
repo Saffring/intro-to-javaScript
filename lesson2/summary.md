@@ -153,6 +153,14 @@ element.addEventListener('click', (event)=>{
 })
 ```
 
+
+```js
+arr.forEach(item=>{
+    // do something
+});
+```
+
+
 ## `forEach` loops
 In our last lesson, we went through different types of for loops. I want to introduce another type that can be used. This is an array method where it iterates and performs a function on each item in the array.
 ```js
@@ -171,7 +179,26 @@ console.log(evenCount)
 ```
 
 
-
 ## Example of different events
 I want to show how you can have different event listener
 
+## Working with APIs
+
+### Requests
+
+### Response
+
+### Promises (extra)
+
+### `Async` functions
+
+```js
+let url = 'https://fake-url.com'
+
+async function myFunction(){
+    const response = await fetch(ur;); // this waits until the API call is complete
+}
+
+```
+
+## API demo
