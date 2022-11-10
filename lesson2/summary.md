@@ -182,7 +182,12 @@ console.log(evenCount)
 ## Example of different events
 I want to show how you can have different event listener
 
+### `hover`
+
+### `keydown`
+
 ## Working with APIs
+API calls are done through URLs and return JSON (JavaScript Object Notation) objects. We make a request through the URL and wait for the request to come back. 
 
 ### Requests
 
@@ -197,6 +202,19 @@ let url = 'https://fake-url.com'
 
 async function myFunction(){
     const response = await fetch(ur;); // this waits until the API call is complete
+}
+
+
+async function getPeople(){
+    let people;
+    fetch("https://swapi.dev/api/people")
+        .then(response=>{
+        console.log(response)})
+        .catch(e=>{
+        console.log("error")
+    })
+    ;
+    return people
 }
 
 ```
