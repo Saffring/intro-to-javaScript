@@ -47,7 +47,7 @@ function addTopicParagraph(topicText){
     // add paragraph text to node
     node.innerHTML = topicText;
     
-    // insert node with topic text into the topic element\
+    // insert node with topic text into the topic element
     topic.appendChild(node);
 }
 ```
@@ -69,5 +69,93 @@ rainLink.addEventListener('click', ()=>{
 })
 ```
 
+### Adding names to our table
+In this part of the demo, I will go over how we can update the dessert table based on a user's input. We will use the `dessertList` array to populate the dessert table and update this array when a user clicks the "Add me" button.
+
+#### Create a function to generate the table rows
+We want to generate the table rows based on the items in `dessertList`. In app.js, this array was defined with two items to show how we can start with two elements.
+```js
+function generateDessertTable(desserts){
+    // do something
+}
+```
+
+#### Inside our function, let's select the table body and remove existing rows
+We want to remove existing rows so that we don't add anything twice. Since we are working with a short list, this is fine. We're also going to select the table by ID.
+```js
+function generateDessertTable(desserts){
+    // select table body and remove all the current rows so that we don't add duplicates
+    let tableBody = document.querySelector("#dessert-table-body");
+    tableBody.innerHTML = ""
+
+    let table = document.querySelector("#dessert-table");
+}
+```
+
+#### Inside our function, we will iterate through each function
+
+#### 1. Create a variable for the submit button
+Now that we have a function to generate the table rows, we can move on to adding new items to this list. We will start by selecting the add me button
+```js
+let submitButton = document.querySelector("#submit-button");
+```
+#### 2. Add an event listener to listen for when this button is clicked
+```js
+submitButton.addEventListener('click', ()=>{
+    // do something
+})
+```
+
+#### 3. Select the values inputted by the user
+We want to be able to access the name and the preferred dessert that the user inputted
+```js
+submitButton.addEventListener('click', ()=>{
+    // get name from HTML input
+    let name = document.querySelector("#name-input").value ;
+
+    // get preferred dessert from HTML input
+    let preferredDessert = document.querySelector("#dessert").value;
+});
+```
+
+#### 4. Create a new dessert object and add it to `dessertList`
+We want to use `dessertList` to generate 
+
+## Different types of function definitions
+In the previous lesson, we say function defined like this:
+```js
+function myFunction(){
+    // do something
+}
+```
+But we've also seen that functions can be inputs to other functions like in an event listener:
+```js
+element.addEventListener('click', function(){
+    // do something
+});
+```
+
+W
+
+## `forEach` loops
+In our last lesson, we went through different types of for loops. I want to introduce another type that can be used. This is an array method where it iterates and performs a function on each item in the array.
+```js
+// code example where we will count the number of even numbers in the array
+
+let nums = [32, 57, 2, 7, 8, 33, 35, 90];
+let evenCount = 0;
+
+nums.forEach(num => {
+    if(num%2 === 0){ // mod of 2 will be 0 if the number is even
+        evenCount ++ // add 1 to evenCount
+    }
+});
+console.log(evenCount)
+>> 4
+```
+
+
+
 ## Example of different events
 I want to show how you can have different event listener
+
