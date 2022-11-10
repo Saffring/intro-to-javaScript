@@ -135,7 +135,23 @@ element.addEventListener('click', function(){
 });
 ```
 
-W
+Here is another way to define functions. It is equivalent way to define functions.
+```js
+// regular function
+const myFunction = (param1, param2) => {
+    // do something
+}
+
+// function as an input
+element.addEventListener('click', ()=>{
+    // do something
+})
+
+// function with parameters as an input
+element.addEventListener('click', (event)=>{
+    // do something
+})
+```
 
 ## `forEach` loops
 In our last lesson, we went through different types of for loops. I want to introduce another type that can be used. This is an array method where it iterates and performs a function on each item in the array.
