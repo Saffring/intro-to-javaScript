@@ -23,6 +23,10 @@ let topic = document.querySelector("#topic");
 
 let textInput = document.querySelector("#example-text-input");
 
+let apiInput = document.querySelector("#api-input");
+let apiButton = document.querySelector("#api-button");
+let apiResult = document.querySelector("#api-result")
+
 // Event listeners
 
 // Give an alert if the "Press me" button is clicked
@@ -33,37 +37,29 @@ button.addEventListener('click', function(){
 
 // Adding an event listener for the three images.
 coffeeLink.addEventListener('click', ()=>{
-    addTopicParagraph("coffee")
+    addTopicParagraph("This is my coffee section");
 })
 
 codingLink.addEventListener('click', ()=>{
-    addTopicParagraph("coding")
+    addTopicParagraph("This is the coding section");
 })
 
 rainLink.addEventListener('click', ()=>{
-    addTopicParagraph("rain")
+    addTopicParagraph("This is my rainy day activity section");
 })
 
-function addTopicParagraph(topicName){
-    // delete anything in that area
+function addTopicParagraph(topicText){
+    // delete anything in that area. This ensures that overwrite what was there before and not add to it.
     topic.innerHTML = "";
-
-    // add different text based on which topic was clicked
-    if(topicName==="coffee"){
-        const node = document.createElement('p');
-        node.innerHTML = "This is my coffee section";
-        topic.appendChild(node);
-    }
-    else if(topicName === "coding"){
-        const node = document.createElement('p');
-        node.innerHTML = "This is coding section";
-        topic.appendChild(node);
-    }
-    else {
-        const node = document.createElement('p');
-        node.innerHTML = "This is my rainy day activity section";
-        topic.appendChild(node);
-    }
+    
+    // create new paragraph node 
+    const node = document.createElement("p");
+    
+    // add paragraph text to node
+    node.innerHTML = topicText;
+    
+    // insert node with topic text into the topic element
+    topic.appendChild(node);
 }
 
 // upon submitting the form, we want to collect the information from each input
@@ -113,3 +109,44 @@ function generateDessertTable(desserts){
 
 // run table generation when page is started
 generateDessertTable(dessertList);
+
+
+const apiURL = 'https://swapi.dev/api/people/';
+
+// add event listener for api button
+apiButton.addEventListener('click', async ()=>{
+    // get user input
+    let charID = apiInput.value
+
+    // ensure that input exists
+    if(charID === ''){
+        return
+    }
+
+    // make API GET request
+    const res = await fetch("https://swapi.dev/api/people/"+charID);
+
+    // check to make sure it was successful
+    console.log(res)
+    if(!res.ok){
+        addErrorBar()
+        return;
+    }
+
+    // otherwise get character and display it
+    let character = await res.json();
+    addCharacterDescription(character)
+});
+
+function addCharacterDescription(character){
+    // todo
+    apiResult.innerHTML = '';
+    apiResult.innerHTML = character['name']
+}
+
+function addErrorBar(){
+    apiResult.innerHTML = '';
+    apiResult.innerHTML = '<div class="alert alert-warning" role="alert">This ID was not found</div>';
+}
+
+
