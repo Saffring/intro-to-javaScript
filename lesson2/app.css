@@ -1,0 +1,41 @@
+body{
+    background-color: #FFE7A4;
+}
+
+.thumbnail{
+    background-color: rgb(255, 200, 122) ;
+}
+
+.jumbotron{
+    background-color: rgb(255, 200, 122) ;;
+}
+
+#my-button{
+    background-color: #714100;
+    color: white;
+}
+
+#submit-button{
+    background-color: #714100;
+    color: white;
+}
+
+html{
+    height: 1000px
+}
+
+#dessert-table{
+    border: solid 1px #714100;
+}
+
+#dessert-table>thead>tr>th{
+    border: solid 1px #714100;
+}
+
+#dessert-table>tbody>tr>th{
+    border: solid 1px #714100;
+}
+
+#dessert-table>tbody>tr>td{
+    border: solid 1px #714100;
+}
