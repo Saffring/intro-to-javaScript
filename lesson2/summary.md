@@ -92,7 +92,51 @@ function generateDessertTable(desserts){
 }
 ```
 
-#### Inside our function, we will iterate through each function
+#### Inside our function, we will iterate through each dessery item
+We want to ensure that each element in the array ends up in the table
+```js
+function generateDessertTable(desserts){
+    // select table body and remove all the current rows so that we don't add duplicates
+    let tableBody = document.querySelector("#dessert-table-body");
+    tableBody.innerHTML = ""
+
+    let table = document.querySelector("#dessert-table");
+
+    // for each dessert, add a row with the name and the preferred dessert
+    desserts.forEach(dessert => {
+        // do something
+    });
+}
+```
+#### Add row for each dessert
+We will create a variable `tr` to represent the new table row. We will then add two cells and set the name and preferred dessert using our `dessert` parameter. We will then append the row to the table
+
+```js
+function generateDessertTable(desserts){
+    // select table body and remove all the current rows so that we don't add duplicates
+    let tableBody = document.querySelector("#dessert-table-body");
+    tableBody.innerHTML = ""
+
+    let table = document.querySelector("#dessert-table");
+
+    // for each dessert, add a row with the name and the preferred dessert
+    desserts.forEach(dessert => {
+        // create tr element
+        const tr = table.insertRow(0);
+
+        // create td for name and for preferred dessert
+        let name = tr.insertCell(0);
+        let preferredDessert = tr.insertCell(1);
+
+        // set them to the value of the current dessert object in array
+        name.innerHTML = dessert['name'];
+        preferredDessert.innerHTML = dessert['dessert'];
+
+        // append the new row to the table body
+        tableBody.appendChild(tr);
+    });
+}
+```
 
 #### 1. Create a variable for the submit button
 Now that we have a function to generate the table rows, we can move on to adding new items to this list. We will start by selecting the add me button
@@ -119,7 +163,45 @@ submitButton.addEventListener('click', ()=>{
 ```
 
 #### 4. Create a new dessert object and add it to `dessertList`
-We want to use `dessertList` to generate 
+Now that we have the inputs, we will now create a dessery object and add it to dessert list
+```js
+// upon submitting the form, we want to collect the information from each input
+submitButton.addEventListener('click', ()=>{
+    // get name from HTML input
+    let name = document.querySelector("#name-input").value ;
+
+    // get preferred dessert from HTML input
+    let preferredDessert = document.querySelector("#dessert").value;
+
+    // add to our dessert list
+    dessertList.push({
+        'name': name,
+        'dessert': preferredDessert
+    });
+})
+```
+
+#### Finally, we will call `generateDessertList` to update the table on the page
+```js
+// upon submitting the form, we want to collect the information from each input
+submitButton.addEventListener('click', ()=>{
+    // get name from HTML input
+    let name = document.querySelector("#name-input").value ;
+
+    // get preferred dessert from HTML input
+    let preferredDessert = document.querySelector("#dessert").value;
+
+    // add to our dessert list
+    dessertList.push({
+        'name': name,
+        'dessert': preferredDessert
+    });
+
+    // re-generate table with updated list
+    generateDessertTable(dessertList);
+
+})
+```
 
 ## Different types of function definitions
 In the previous lesson, we say function defined like this:
@@ -189,11 +271,21 @@ I want to show how you can have different event listener
 ## Working with APIs
 API calls are done through URLs and return JSON (JavaScript Object Notation) objects. We make a request through the URL and wait for the request to come back. 
 
+Common types of requests:
+- GET (retrieve data)
+- POST (upload data)
+- POST (update data)
+- DELETE (delete data)
+
 ### Requests
+We can use `fetch` to make API calls to urls
+```js
+fetch("https://swapi.dev/api/people/1")
+>> Promise {<pending>}
+```
 
-### Response
-
-### Promises (extra)
+### Response and promises
+Retrieving data can be 
 
 ### `Async` functions
 
@@ -203,20 +295,126 @@ let url = 'https://fake-url.com'
 async function myFunction(){
     const response = await fetch(ur;); // this waits until the API call is complete
 }
-
-
-async function getPeople(){
-    let people;
-    fetch("https://swapi.dev/api/people")
-        .then(response=>{
-        console.log(response)})
-        .catch(e=>{
-        console.log("error")
-    })
-    ;
-    return people
-}
-
 ```
 
 ## API demo
+In this demo, we will update our page based on what is returned from an API call. We will have the user input a character ID and then display the name of that character if they exist in the SWAPI.
+
+### Define HTML element that we will use as variables and define our URL
+```js
+let apiInput = document.querySelector("#api-input");
+let apiButton = document.querySelector("#api-button");
+let apiResult = document.querySelector("#api-result")
+
+const apiURL = 'https://swapi.dev/api/people/';
+```
+### Create an event listener for the `apiButton`
+```js
+apiButton.addEventListener('click', async ()=>{
+    // do something
+});
+```
+
+### Retrieve the charID from the `apiInput`
+We want to get this value because it will be used when making the API call. We also want to only call our API if there is an input so we will also create an `if` statement which double checks if the user inputted a value
+```js
+apiButton.addEventListener('click', async ()=>{
+    // get user input
+    let charID = apiInput.value
+
+    // ensure that input exists
+    if(charID === ''){
+        return
+    }
+});
+```
+
+### Make API request
+Notice here how we use the keyword `await` here. This is so we stop moving through the function until our API has returned.
+```js
+apiButton.addEventListener('click', async ()=>{
+    // get user input
+    let charID = apiInput.value
+
+    // ensure that input exists
+    if(charID === ''){
+        return
+    }
+
+    // make API GET request
+    const res = await fetch("https://swapi.dev/api/people/"+charID);
+});
+```
+
+### Check status of API response
+There may be a chance that our user inputs an incorrect value such as a letter or an ID that doesn't exist. We want to communicate that to the user.
+```js
+// add event listener for api button
+apiButton.addEventListener('click', async ()=>{
+    // get user input
+    let charID = apiInput.value
+
+    // ensure that input exists
+    if(charID === ''){
+        return
+    }
+
+    // make API GET request with charID
+    const res = await fetch("https://swapi.dev/api/people/"+charID);
+
+    // check to make sure it was successful
+    console.log(res)
+    if(!res.ok){
+        // do something for error
+    }
+    else{
+        // do something for succes
+    }
+});
+```
+
+### Create `addErrorBar` function
+This function will clear out the HTML inside the `apiResult` element and add an error bar instead
+```js
+function addErrorBar(){
+    apiResult.innerHTML = '';
+    apiResult.innerHTML = '<div class="alert alert-warning" role="alert">This ID was not found</div>';
+}
+```
+
+### Create `addCharacterName` function
+This function will clear out the HTML inside the `apiResult` element and add the character's name
+```js
+function addCharacterName(character){
+    apiResult.innerHTML = '';
+    apiResult.innerHTML = character['name']
+}
+```
+
+### Get success data and fill in missing values in `if` statement
+First we will get the character object by calling `.json()` to our `res` variable. This also requires an `await` keyword. WWe will then add the two new functions we created in the correct place. 
+```js
+apiButton.addEventListener('click', async ()=>{
+    // get user input
+    let charID = apiInput.value
+
+    // ensure that input exists
+    if(charID === ''){
+        return
+    }
+
+    // make API GET request
+    const res = await fetch("https://swapi.dev/api/people/"+charID);
+
+    // check to make sure it was successful
+    console.log(res)
+    if(!res.ok){
+        addErrorBar()
+        return;
+    }
+
+    // otherwise get character and display it
+    let character = await res.json();
+    addCharacterName(character)
+});
+```

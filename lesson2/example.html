@@ -77,12 +77,26 @@
               </table>
         </div>
         <div class="row">
-              <div class="col-12">
-                  <table id="api-table">
-                      <tr id="table-header"></tr>
-                  </table>
+              <form>
+                <div class="form-group col-md-2">
+                  <label for="api-input">Star Wars Character ID</label>
+                  <input class="form-control" id="api-input" placeholder="Enter integer">
               </div>
+              <div class="form-group col-md-2">
+                <label for="api-button">Find out who this is</label><br>
+                <button id="api-button" type="button" class="btn btn-primary">Search for character</button>
+              </div>
+              </form>
             </div>
+          <div class="row">
+            <div class="col-12">
+                <div id="api-result">
+
+                </div>
+                <br>
+                <br>
+            </div>
+          </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -20,6 +20,11 @@ body{
     color: white;
 }
 
+#api-button{
+    background-color: #714100;
+    color: white;
+}
+
 html{
     height: 1000px
 }

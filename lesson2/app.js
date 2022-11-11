@@ -135,11 +135,10 @@ apiButton.addEventListener('click', async ()=>{
 
     // otherwise get character and display it
     let character = await res.json();
-    addCharacterDescription(character)
+    addCharacterName(character)
 });
 
-function addCharacterDescription(character){
-    // todo
+function addCharacterName(character){
     apiResult.innerHTML = '';
     apiResult.innerHTML = character['name']
 }
