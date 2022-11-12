@@ -222,17 +222,17 @@ Here is another way to define functions. It is equivalent way to define function
 // regular function
 const myFunction = (param1, param2) => {
     // do something
-}
+};
 
 // function as an input
 element.addEventListener('click', ()=>{
     // do something
-})
+});
 
 // function with parameters as an input
 element.addEventListener('click', (event)=>{
     // do something
-})
+});
 ```
 
 
@@ -253,10 +253,10 @@ let evenCount = 0;
 
 nums.forEach(num => {
     if(num%2 === 0){ // mod of 2 will be 0 if the number is even
-        evenCount ++ // add 1 to evenCount
+        evenCount ++ ;// add 1 to evenCount
     }
 });
-console.log(evenCount)
+console.log(evenCount);
 >> 4
 ```
 
@@ -267,7 +267,7 @@ You can add an event that listens to if a certain key was pressed.
 ```js
 addEventListener('keydown', (event) => {
     if(event.key === 'a'){
-        alert("a was pressed")
+        alert("a was pressed");
     }
 });
 ```
@@ -284,7 +284,7 @@ Common types of requests:
 ### Requests
 We can use `fetch` to make API calls to urls
 ```js
-fetch("https://swapi.dev/api/people/1")
+fetch("https://swapi.dev/api/people/1");
 >> Promise {<pending>}
 ```
 
@@ -295,13 +295,57 @@ Retrieving data can take time and we need to have a way of communicating that. O
 - `Promise {<fulfilled>}`
 - `Promise {<rejected>}`
 
+### Looking at a response
+We have called the API but now we want to actually make use of the response. We will use the function `.then()` after `fetch` which waits until the API has completed successfully to go. We also add the `catch` function at the end of `then` in case the Promise is rejected.
+```js
+
+// success
+fetch("https://swapi.dev/api/people/1")
+    .then(response=>{
+        console.log(response);
+    })
+    .catch(error=>{
+        console.log(error);
+    });
+
+>> Response {type: 'cors', url: 'https://swapi.dev/api/people/1', redirected: false, status: 200, ok: true, …}
+
+// error
+fetch("https://swapi.dev/api/people/-0")
+    .then(response=>{
+        console.log(response);
+    })
+    .catch(error=>{
+        console.log(error);
+    });
+>> Response {type: 'cors', url: 'https://swapi.dev/api/people/-0', redirected: false, status: 404, ok: false, …}
+```
+
+### Using our responses
+In order to actually use our response, we will not be able to just use that `response` object. We will usually have to use the `json` function to make it easier to use. This function also make take time so we follow it up with a `then`
+```js
+let responseData;
+fetch("https://swapi.dev/api/people/1")
+    .then(response=>{
+        response.json().then(data=>{
+            console.log(data);
+            responseData = data;
+        })
+    })
+    .catch(error=>{
+        console.log(error);
+    });
+>> {name: 'Luke Skywalker', height: '172', mass: '77', hair_color: 'blond', skin_color: 'fair', …}
+```
+
 ### `Async` functions
+Unless we have some way to indicate that we want our functions to wait for certain things to complete, our code may continue to execute while the API is running which is not what we want. This is why we use async functions
 
 ```js
 let url = 'https://fake-url.com'
 
 async function myFunction(){
-    const response = await fetch(ur;); // this waits until the API call is complete
+    const response = await fetch(url); // this waits until the API call is complete
 }
 ```
 
