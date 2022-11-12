@@ -318,6 +318,10 @@ fetch("https://swapi.dev/api/people/-0")
 >> Response {type: 'cors', url: 'https://swapi.dev/api/people/-0', redirected: false, status: 404, ok: false, …}
 ```
 
+### Codes
+If you look at the status part of a response, they have certain codes which communicate if the call was successful and if there is an error, we can know exactly what went wrong. For our purposes, it is sufficient to know that all 200 level codes mean success and all 400 level codes mean error. 
+- For those curious: 404 means page was not found.
+
 ### Using our responses
 In order to actually use our response, we will not be able to just use that `response` object. We will usually have to use the `json` function to make it easier to use. This function also make take time so we follow it up with a `then`
 ```js
