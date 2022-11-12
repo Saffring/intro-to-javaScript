@@ -535,7 +535,7 @@ let listItems = document.querySelectorAll("li");
 We are able to update HTML elements once we have selected them using JS
 ```js
 let h1 = document.getElementByTagName("h1");
-
+h1.innerHTML = "new title"
 ```
 ## DOM Events
 Events are occur when a certain action is performed by the website user. An example of an event would be when you click on a particular HTML element. Suppose you want your website to change what it displays on the page when you click a certain item, DOM events make sure that the change only occurs when that item is clicked.
