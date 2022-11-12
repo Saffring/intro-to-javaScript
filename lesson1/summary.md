@@ -545,7 +545,7 @@ We can set event listeners to certain elements and basically say "when a certain
 
 ```js
 let button = document.getElementById("#button");
-button.addEventListener(function(){
+button.addEventListener("click", function(){
     console.log("The button was pressed");
 });
 ```
