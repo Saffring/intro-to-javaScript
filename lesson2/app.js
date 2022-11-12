@@ -147,5 +147,3 @@ function addErrorBar(){
     apiResult.innerHTML = '';
     apiResult.innerHTML = '<div class="alert alert-warning" role="alert">This ID was not found</div>';
 }
-
-

@@ -260,13 +260,17 @@ console.log(evenCount)
 >> 4
 ```
 
-
-## Example of different events
+## Example of a different event
 I want to show how you can have different event listener
-
-### `hover`
-
 ### `keydown`
+You can add an event that listens to if a certain key was pressed.
+```js
+addEventListener('keydown', (event) => {
+    if(event.key === 'a'){
+        alert("a was pressed")
+    }
+});
+```
 
 ## Working with APIs
 API calls are done through URLs and return JSON (JavaScript Object Notation) objects. We make a request through the URL and wait for the request to come back. 
@@ -285,7 +289,11 @@ fetch("https://swapi.dev/api/people/1")
 ```
 
 ### Response and promises
-Retrieving data can be 
+Retrieving data can take time and we need to have a way of communicating that. Often, APIs will return promises. This is a representation of the eventual object that will be returned. A promise comes in three states:
+
+- `Promise {<pending>}`
+- `Promise {<fulfilled>}`
+- `Promise {<rejected>}`
 
 ### `Async` functions
 
